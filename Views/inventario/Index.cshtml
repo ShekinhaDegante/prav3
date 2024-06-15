@@ -1,0 +1,47 @@
+﻿@model IEnumerable<prav3.Models.inventario>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FKIDLibro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FKIDSucursal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Existencia)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FKIDLibro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FKIDSucursal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Existencia)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IDInventario">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IDInventario">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IDInventario">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

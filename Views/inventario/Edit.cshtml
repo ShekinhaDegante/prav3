@@ -1,0 +1,44 @@
+﻿@model prav3.Models.inventario
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>inventario</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IDInventario" />
+            <div class="form-group">
+                <label asp-for="FKIDLibro" class="control-label"></label>
+                <input asp-for="FKIDLibro" class="form-control" />
+                <span asp-validation-for="FKIDLibro" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FKIDSucursal" class="control-label"></label>
+                <input asp-for="FKIDSucursal" class="form-control" />
+                <span asp-validation-for="FKIDSucursal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Existencia" class="control-label"></label>
+                <input asp-for="Existencia" class="form-control" />
+                <span asp-validation-for="Existencia" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
